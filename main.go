@@ -172,7 +172,7 @@ func ProcessSRVReq(Resolver doh.Resolver, r *dns.Msg) *dns.Msg {
 	m.RecursionAvailable = true
 	m.RecursionDesired = true
 	m.Answer = []dns.RR{}
-	SRVResult, SRVTTL, err := NormalResolver.LookupSRV(domain)
+	SRVResult, SRVTTL, err := Resolver.LookupSRV(domain)
 	if err == nil {
 		for ID, SRVRecord := range SRVResult {
 			Response := new(dns.SRV)
@@ -198,7 +198,7 @@ func ProcessSOAReq(Resolver doh.Resolver, r *dns.Msg) *dns.Msg {
 	m.RecursionAvailable = true
 	m.RecursionDesired = true
 	m.Answer = []dns.RR{}
-	SOAResult, SOATTL, err := NormalResolver.LookupSOA(domain)
+	SOAResult, SOATTL, err := Resolver.LookupSOA(domain)
 	if err == nil {
 		for ID, SOARecord := range SOAResult {
 			Response := new(dns.SOA)
@@ -227,7 +227,7 @@ func ProcessTXTReq(Resolver doh.Resolver, r *dns.Msg) *dns.Msg {
 	m.RecursionAvailable = true
 	m.RecursionDesired = true
 	m.Answer = []dns.RR{}
-	TXTResult, TXTTTL, err := NormalResolver.LookupTXT(domain)
+	TXTResult, TXTTTL, err := Resolver.LookupTXT(domain)
 	if err == nil {
 		for ID, NSRecord := range TXTResult {
 			Response := new(dns.TXT)
@@ -250,7 +250,7 @@ func ProcessNSReq(Resolver doh.Resolver, r *dns.Msg) *dns.Msg {
 	m.RecursionAvailable = true
 	m.RecursionDesired = true
 	m.Answer = []dns.RR{}
-	NSResult, NSTTL, err := NormalResolver.LookupNS(domain)
+	NSResult, NSTTL, err := Resolver.LookupNS(domain)
 	if err == nil {
 		for ID, NSRecord := range NSResult {
 			Response := new(dns.NS)
@@ -273,7 +273,7 @@ func ProcessMXReq(Resolver doh.Resolver, r *dns.Msg) *dns.Msg {
 	m.RecursionAvailable = true
 	m.RecursionDesired = true
 	m.Answer = []dns.RR{}
-	MXResult, MXTTL, err := NormalResolver.LookupMX(domain)
+	MXResult, MXTTL, err := Resolver.LookupMX(domain)
 	if err == nil {
 		for ID, MXRecord := range MXResult {
 			Response := new(dns.MX)
@@ -297,7 +297,7 @@ func ProcessCNAMEReq(Resolver doh.Resolver, r *dns.Msg) *dns.Msg {
 	m.RecursionAvailable = true
 	m.RecursionDesired = true
 	m.Answer = []dns.RR{}
-	CNAMEResult, CNAMETTL, err := NormalResolver.LookupCNAME(domain)
+	CNAMEResult, CNAMETTL, err := Resolver.LookupCNAME(domain)
 	if err == nil {
 		for ID, CNAMERecord := range CNAMEResult {
 			Response := new(dns.CNAME)
@@ -320,7 +320,7 @@ func ProcessPTRReq(Resolver doh.Resolver, r *dns.Msg) *dns.Msg {
 	m.RecursionAvailable = true
 	m.RecursionDesired = true
 	m.Answer = []dns.RR{}
-	PTRResult, PTRTTL, err := NormalResolver.LookupPTR(domain)
+	PTRResult, PTRTTL, err := Resolver.LookupPTR(domain)
 	if err == nil {
 		for ID, PTRRecord := range PTRResult {
 			Response := new(dns.PTR)
@@ -343,7 +343,7 @@ func ProcessAReq(Resolver doh.Resolver, r *dns.Msg) *dns.Msg {
 	m.RecursionAvailable = true
 	m.RecursionDesired = true
 	m.Answer = []dns.RR{}
-	AResult, ATTL, err := NormalResolver.LookupA(domain)
+	AResult, ATTL, err := Resolver.LookupA(domain)
 	if err == nil {
 		for ID, ARecord := range AResult {
 			Response := new(dns.A)
@@ -366,7 +366,7 @@ func ProcessAAAAReq(Resolver doh.Resolver, r *dns.Msg) *dns.Msg {
 	m.RecursionAvailable = true
 	m.RecursionDesired = true
 	m.Answer = []dns.RR{}
-	AAAAResult, AAAATTL, err := NormalResolver.LookupAAAA(domain)
+	AAAAResult, AAAATTL, err := Resolver.LookupAAAA(domain)
 	if err == nil {
 		for ID, AAAARecord := range AAAAResult {
 			Response := new(dns.AAAA)
